@@ -1,0 +1,13 @@
+<volume>
+  <name>{{new_instance.value.name}}.qcow2</name>
+  <allocation>0</allocation>
+  <capacity unit="GiB">10</capacity>
+  <target>
+    <path>/var/lib/libvirt/images/{{new_instance.value.name}}.qcow2</path>
+    <format type="qcow2"/>
+  </target>
+  <backingStore>
+    <path>/var/lib/libvirt/images/base_centos7.img</path>
+    <format type="raw"/>
+  </backingStore>
+</volume>
