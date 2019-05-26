@@ -7,15 +7,15 @@
 
 - name: templae
   debug:
-    msg: "{{lookup('template', 'vol_template.xml')}}"
+    msg: "{{ lookup('template', 'vol_template.xml') }}"
 
 #TODO ugly placeholder
 - name: create qcow disk
-  shell: virsh vol-create default <(echo '{{lookup("template", "vol_template.xml")}}')
+  shell: virsh vol-create default <(echo '{{ lookup("template", "vol_template.xml") }}')
   args:
     executable: /bin/bash
-    creates: "/var/lib/libvirt/images/{{new_instance.value.name}}.qcow2"
+    creates: "/var/lib/libvirt/images/{{ new_instance.value.name }}.qcow2"
   become: True
   #  virt:
   #    command: define
-  #    xml: "{{lookup('template', 'vol_template.xml')}}"
+  #    xml: "{{ lookup('template', 'vol_template.xml') }}"
