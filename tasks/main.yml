@@ -15,7 +15,9 @@
   args:
     executable: /bin/bash
     creates: "/var/lib/libvirt/images/{{ new_instance.value.name }}.qcow2"
-  become: True
+  environment:
+    LIBVIRT_DEFAULT_URI: "qemu:///system"
+  #become: True
   #  virt:
   #    command: define
   #    xml: "{{ lookup('template', 'vol_template.xml') }}"
